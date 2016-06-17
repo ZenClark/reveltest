@@ -1,0 +1,11 @@
+/* Released under the Too Simple to Copyright license. Use at your own risk. */
+
+  .msgbox {
+    background-color: #FFF000;
+    
+  }
+  
+  .error {
+    background-color: red;
+    text-align: center;
+  }

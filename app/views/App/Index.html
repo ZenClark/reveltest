@@ -1,0 +1,39 @@
+{{set . "title" "Anonymous Micro-blogging"}}
+{{template "header.html" .}}
+
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+      <div class="hero-text">
+        <h1>It works! Or does it?</h1>
+        <p>We may never know.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+{{if eq .IsError true}}
+<div id="Errors" class="error">
+  <p> Error: {{.Error}} </p>
+</div>
+{{end}}
+
+{{if eq .IsError false}}
+<div id="Msgs">
+    {{range .Messages}}
+      <div class="msgbox">
+        <h1>Message ID: {{.ID}}</h1>
+        <p>{{.Msg}} </p>
+      </div>
+    {{end}}
+</div>
+{{end}}
+
+<div id="newMessage">
+  <form method="POST" action="/NewMessage">
+    <input type="text" id="message" name="message"/>
+    <input type="submit" value="Create"/>
+  </form>
+</div>
+
+{{template "footer.html" .}}
